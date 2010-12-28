@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>no.magott.spring</groupId>
+  <artifactId>magott-spring-poc</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Spring PoC</name>
+  
+  <distributionManagement>
+    <site>
+      <id>website</id>
+      <url>http://www.github.com/magott/magott-spring-poc</url>
+    </site>
+  </distributionManagement>
+  
+  <modules>
+	<module>magott-springbatch-poc</module>
+  </modules>
+    
+	<dependencyManagement>
+        <dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+	</dependencies>
+</dependencyManagement>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<spring.framework.version>3.0.5.RELEASE</spring.framework.version>
+	<junit.version>4.8.1</junit.version>
+  </properties>
+</project>
