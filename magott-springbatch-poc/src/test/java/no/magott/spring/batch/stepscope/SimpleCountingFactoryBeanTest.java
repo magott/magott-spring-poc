@@ -30,6 +30,7 @@ public class SimpleCountingFactoryBeanTest {
 	public void messageIsSameForEachInvocation() throws Exception{
 		System.out.println(message);
 		System.out.println(message2);
+		System.out.println(message);
 		assertThat(message, sameInstance(message2));
 		
 	}
