@@ -6,12 +6,12 @@ import org.springframework.beans.factory.FactoryBean;
 
 public class CountingFactoryBean implements FactoryBean<Message> {
 
-	private static AtomicInteger invocationCount;
+	private final static AtomicInteger invocationCount = new AtomicInteger();
 	private String message;
 
 	public Message getObject() throws Exception {
 		int count = invocationCount.incrementAndGet();
-		return new SimpleMessage(message + " count: "+count);
+		return new SimpleMessage(message,count);
 	}
 
 	public Class<?> getObjectType() {
@@ -26,5 +26,4 @@ public class CountingFactoryBean implements FactoryBean<Message> {
 		this.message = message;
 	}
 
-	
 }
