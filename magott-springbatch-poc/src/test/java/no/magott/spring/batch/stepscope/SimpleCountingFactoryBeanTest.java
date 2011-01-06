@@ -1,5 +1,6 @@
 package no.magott.spring.batch.stepscope;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertThat;
 
@@ -27,12 +28,17 @@ public class SimpleCountingFactoryBeanTest {
 	private Message message2;
 
 	@Test
-	public void messageIsSameForEachInvocation() throws Exception{
-		System.out.println(message);
-		System.out.println(message2);
-		System.out.println(message);
+	public void messageIsSameInstanceForEachInvocation() throws Exception{
 		assertThat(message, sameInstance(message2));
-		
+	}
+	
+	@Test
+	public void countRemainsSameAfterConsecutiveAccessOfMessage(){
+		int messagecount1 = message.getCount();
+		int message2count1 = message2.getCount();
+		int messagecount2 = message.getCount();
+		assertThat(messagecount1, equalTo(message2count1));
+		assertThat(message2count1, equalTo(messagecount2));
 	}
 	
     public StepExecution getStepExection() {

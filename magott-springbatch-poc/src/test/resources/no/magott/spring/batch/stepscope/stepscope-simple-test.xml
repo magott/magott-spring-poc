@@ -10,7 +10,7 @@
 
 	<bean id="message" class="no.magott.spring.batch.stepscope.CountingFactoryBean" scope="step">
 		<property name="messageString" value="HelloWorld" />
-		<aop:scoped-proxy proxy-target-class="false"/>
+<!--		<aop:scoped-proxy proxy-target-class="false"/>-->
 	</bean>
 	
 </beans>
