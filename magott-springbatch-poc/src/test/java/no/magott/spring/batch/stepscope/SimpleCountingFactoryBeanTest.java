@@ -37,6 +37,7 @@ public class SimpleCountingFactoryBeanTest {
 		int messagecount1 = message.getCount();
 		int message2count1 = message2.getCount();
 		int messagecount2 = message.getCount();
+		assertThat(message.getMessage(), equalTo("bar"));
 		assertThat(messagecount1, equalTo(message2count1));
 		assertThat(message2count1, equalTo(messagecount2));
 	}
