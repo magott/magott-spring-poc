@@ -17,7 +17,7 @@
 	<context:property-placeholder location="classpath:oauth.properties" />
 	
 	<int:channel id="twitterChannel"></int:channel>
-
+	
 	<bean id="twitterTemplate"
 		class="org.springframework.integration.twitter.core.Twitter4jTemplate">
 		<constructor-arg value="${twitter.oauth.consumerKey}" />
