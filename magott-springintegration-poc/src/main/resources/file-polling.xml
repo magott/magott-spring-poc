@@ -18,7 +18,7 @@
 	<context:property-placeholder/>
 
 	<int:service-activator id="exampleService" input-channel="messagesIn">
-		<bean class="no.magott.spring.integration.SysOutService"/>
+		<bean class="no.magott.spring.integration.file.SysOutService"/>
 	</int:service-activator>
 	
 	<int:poller default="true">

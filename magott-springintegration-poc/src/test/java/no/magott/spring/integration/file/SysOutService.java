@@ -1,4 +1,4 @@
-package no.magott.spring.integration;
+package no.magott.spring.integration.file;
 
 public class SysOutService {
 

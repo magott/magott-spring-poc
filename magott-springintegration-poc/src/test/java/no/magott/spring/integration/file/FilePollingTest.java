@@ -1,4 +1,4 @@
-package no.magott.spring.integration;
+package no.magott.spring.integration.file;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
