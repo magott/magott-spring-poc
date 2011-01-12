@@ -14,7 +14,7 @@
 	<import resource="postnr-import-simple-ctx.xml" />
 
 	<!-- Endpoint: Fetches files from directory -->
-	<file:inbound-channel-adapter directory="file://c:/temp"
+	<file:inbound-channel-adapter directory="file://c:/temp" filename-pattern="postnr.txt"
 		channel="files">
 		<int:poller>
 			<int:interval-trigger interval="1000" />
@@ -31,7 +31,7 @@
 	<!-- Endpoint: Reads result and parses it to twitter publishable string -->
 	<int:transformer input-channel="batchResult"
 		output-channel="twitterChannel"
-		expression="payload.id + '- [' + T(java.lang.System).currentTimeMillis() + ']'" />
+		expression="'Batch with ID '+ payload.id + ' finished with status ' + payload.exitStatus.exitCode + '- [' + T(java.lang.System).currentTimeMillis() + ']'" />
 	
 	<!-- Channel: Twitter channel -->
 	<int:channel id="twitterChannel" />
