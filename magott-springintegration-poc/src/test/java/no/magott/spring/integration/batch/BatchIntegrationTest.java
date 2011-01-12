@@ -1,3 +1,4 @@
+package no.magott.spring.integration.batch;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
