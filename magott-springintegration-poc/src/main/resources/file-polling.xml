@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.0.xsd
+		http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<file:inbound-channel-adapter id="filesIn" directory="file://c:/temp" channel="messagesIn" />
+		
+	<int:publish-subscribe-channel id="messagesIn"/>
+		
+	<context:property-placeholder/>
+
+	<int:service-activator id="exampleService" input-channel="messagesIn">
+		<bean class="no.magott.spring.integration.SysOutService"/>
+	</int:service-activator>
+	
+	<int:poller default="true">
+		<int:interval-trigger interval="1000"/>
+	</int:poller>
+
+</beans>
