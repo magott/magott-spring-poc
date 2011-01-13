@@ -16,9 +16,7 @@
 	<!-- Endpoint: Fetches files from directory -->
 	<file:inbound-channel-adapter directory="file://c:/temp" filename-pattern="postnr.txt"
 		channel="files">
-		<int:poller>
-			<int:interval-trigger interval="1000" />
-		</int:poller>
+		<int:poller fixed-delay="1000" />
 	</file:inbound-channel-adapter>
 
 	<!-- Endpoint: Batch starting endpoint launches a job with filename as input -->
