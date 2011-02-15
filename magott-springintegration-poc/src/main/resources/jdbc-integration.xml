@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.0.xsd
+		http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc-2.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+<int-jdbc:inbound-channel-adapter channel="data" query="call NOW()" data-source="dataSource">
+	 <int:poller fixed-delay="1000">
+    </int:poller>
+</int-jdbc:inbound-channel-adapter>
+	
+
+<int:channel id="data">
+	<int:queue capacity="2"/>
+</int:channel>
+
+<jdbc:embedded-database id="dataSource">
+	<jdbc:script location="classpath:jdbc-integration.sql"/>
+</jdbc:embedded-database>
+
+</beans>

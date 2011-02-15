@@ -5,5 +5,7 @@ CREATE TABLE PERSON  (
 	LASTNAME VARCHAR(100) NOT NULL
 ) ;
 
-INSERT INTO PERSON('Morten', 'Andersen-Gott');
-INSERT INTO PERSON('Foo', 'Bar')
+INSERT INTO PERSON(firstname, lastname) values('Morten', 'Andersen-Gott');
+INSERT INTO PERSON(firstname, lastname) values('Foo', 'Bar')
+
+--CREATE ALIAS sp_selectPerson FOR "my.class.DaoTester.random"
