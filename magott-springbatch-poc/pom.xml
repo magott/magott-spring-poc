@@ -22,7 +22,7 @@
 	</description>
 	<properties>
 		<maven.test.failure.ignore>false</maven.test.failure.ignore>
-		<spring.batch.version>2.1.5.RELEASE</spring.batch.version>
+		<spring.batch.version>2.1.6.RELEASE</spring.batch.version>
 	</properties>
 	<profiles>
 		<profile>
@@ -137,11 +137,7 @@
 			<version>1.2.14</version>
 		</dependency>
 	</dependencies>
-	<scm>
-		<connection>scm:git:https://magott@github.com/magott/magott-springbatch-poc.git</connection>
-		<developerConnection>scm:git:https://magott@github.com/magott/magott-springbatch-poc.git</developerConnection>
-		<url>http://github.com/magott/magott-springbatch-poc</url>
-	</scm>
+
 
 	<build>
 		<pluginManagement>
